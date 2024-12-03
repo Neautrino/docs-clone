@@ -1,15 +1,19 @@
 import React from 'react'
+import { Editor } from './Editor';
 
 interface documentIdPageProps {
-    params: Promise<{ documentId: string}>
+  params: Promise<{ documentId: string }>
 }
 
 async function DocumentIdPage({ params }: documentIdPageProps) {
 
-    const documentId = (await params).documentId;
+  const documentId = (await params).documentId;
 
   return (
-    <div>DocumentIdPage {documentId}</div>
+    <div className='min-h-screen bg-[#FAFBFD]'>
+      <Editor />
+    </div>
+
   )
 }
 
