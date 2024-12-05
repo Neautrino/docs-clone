@@ -14,6 +14,8 @@ import { useEditorStore } from '@/store/use-editor-store'
 import Underline from '@tiptap/extension-underline'
 import TextStyle from '@tiptap/extension-text-style'
 import FontFamily from '@tiptap/extension-font-family'
+import Highlight from '@tiptap/extension-highlight'
+import Color from '@tiptap/extension-color'
 
 export function Editor() {
 
@@ -52,11 +54,13 @@ export function Editor() {
     },
     extensions: [
       StarterKit,
+      Color,
       TextStyle,
       FontFamily,
       Table.configure({
         resizable: true,
       }),
+      Highlight.configure({ multicolor: true }),
       TableRow,
       TableHeader,
       TableCell,
