@@ -17,6 +17,7 @@ import FontFamily from '@tiptap/extension-font-family'
 import Highlight from '@tiptap/extension-highlight'
 import Color from '@tiptap/extension-color'
 import Link from '@tiptap/extension-link'
+import TextAlign from '@tiptap/extension-text-align'
 
 export function Editor() {
 
@@ -59,6 +60,9 @@ export function Editor() {
 			TextStyle,
 			FontFamily,
 			Highlight.configure({ multicolor: true }),
+			TextAlign.configure({
+				types: ['heading', 'paragraph'],
+			  }),
 			Table.configure({
 				resizable: true,
 			}),
