@@ -5,10 +5,26 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 import { templates } from "@/constants/templates";
+import { useRouter } from "next/navigation";
+import { useMutation } from "convex/react";
+import { api } from "../../../convex/_generated/api";
 
 function TemplatesGallary() {
 
+  const router = useRouter();
+  const create = useMutation(api.documents.create);
   const [isCreating, setIsCreating] = useState(false);
+
+  const onTemplateClick = async (title: string, initialContent: string) => {
+    setIsCreating(true);
+    create({title, initialContent})
+      .then((documentId) => {
+        router.push(`/documents/${documentId}`);
+      })
+      .finally(() =>{ 
+        setIsCreating(false);
+      });
+  }
 
   return (
     <div className="bg-[#F1F3F4]">
@@ -29,7 +45,7 @@ function TemplatesGallary() {
                 >
                   <button
                     disabled={isCreating}
-                    onClick={() => {}}
+                    onClick={() => onTemplateClick(template.label, "")} /* TODO: add proper initial content */
                     style={{
                       backgroundImage: `url(${template.imageUrl})`,
                       backgroundSize: "cover",
