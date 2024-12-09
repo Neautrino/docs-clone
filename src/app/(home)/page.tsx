@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Link from 'next/link'
+import TemplatesGallary from './TemplatesGallary'
 
 function Home() {
   return (
@@ -9,9 +10,7 @@ function Home() {
         <Navbar />
       </div>
       <div className="mt-16">
-      Click <Link href={"/documents/123"}>
-      <span className="text-blue-500 underline"> here </span>
-      </Link> to go to document id
+        <TemplatesGallary />
       </div>
     </div>
   )
