@@ -21,7 +21,7 @@ function DocumentMenu({ documentId, title, onNewTab }: DocumentMenuProps) {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-                <RenameDialog documentId={documentId}>
+                <RenameDialog documentId={documentId} initialTitle={title}>
                     <DropdownMenuItem
                         onSelect={(e) => e.preventDefault()}
                         onClick={(e) => e.stopPropagation()}
