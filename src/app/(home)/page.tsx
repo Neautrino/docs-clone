@@ -7,10 +7,11 @@ import { usePaginatedQuery } from 'convex/react';
 import { api } from '../../../convex/_generated/api';
 import FullScreenLoader from '@/components/FullScreenLoader';
 import DocumentsTable from './DocumentsTable';
+import { useSearchParam } from '@/hooks/use-search-param';
 
 function Home() {
-
-  const {results, status, loadMore} = usePaginatedQuery(api.documents.get, {}, {initialNumItems: 5});
+  const [search] = useSearchParam();
+  const {results, status, loadMore} = usePaginatedQuery(api.documents.get, { search }, {initialNumItems: 5});
 
   return (
     <div className='min-h-screen flex flex-col'>
