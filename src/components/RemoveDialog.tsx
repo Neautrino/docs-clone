@@ -15,6 +15,7 @@ import {
  } from "./ui/alert-dialog";
 import { useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
+import { toast } from "sonner";
 
 interface RemoveDialogProps {
     documentId: Id<"documents">;
@@ -48,6 +49,8 @@ function RemoveDialog({ documentId, children }: RemoveDialogProps) {
                         e.stopPropagation();
                         setIsRemoving(true);
                         remove({ id: documentId })
+                            .then(() => toast.success("Document deleted"))
+                            .catch(() => toast.error("Failed to delete document"))
                             .finally(() => setIsRemoving(false));
                     }}
                 >

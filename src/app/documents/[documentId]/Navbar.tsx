@@ -37,13 +37,14 @@ import {
 } from 'lucide-react'
 import { useEditorStore } from '@/store/use-editor-store'
 import { on } from 'events'
+import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
 
 function Navbar() {
 
 	const { editor } = useEditorStore();
 
-	const insertTable = ({rows, cols}: {rows: number, cols: number}) => {
-		editor?.chain().focus().insertTable({rows, cols, withHeaderRow: false}).run();
+	const insertTable = ({ rows, cols }: { rows: number, cols: number }) => {
+		editor?.chain().focus().insertTable({ rows, cols, withHeaderRow: false }).run();
 	};
 
 	const onDownload = (blob: Blob, filename: string) => {
@@ -55,7 +56,7 @@ function Navbar() {
 	}
 
 	const onSaveJson = () => {
-		if(!editor) return;
+		if (!editor) return;
 
 		const content = editor.getJSON();
 		const blob = new Blob([JSON.stringify(content)], {
@@ -63,9 +64,9 @@ function Navbar() {
 		});
 		onDownload(blob, "document.json"); // TODO: Add download filename
 	}
-	
+
 	const onSaveHTML = () => {
-		if(!editor) return;
+		if (!editor) return;
 
 		const content = editor.getHTML();
 		const blob = new Blob([content], {
@@ -75,7 +76,7 @@ function Navbar() {
 	}
 
 	const onSaveText = () => {
-		if(!editor) return;
+		if (!editor) return;
 
 		const content = editor.getText();
 		const blob = new Blob([content], {
@@ -147,11 +148,11 @@ function Navbar() {
 									Edit
 								</MenubarTrigger>
 								<MenubarContent>
-									<MenubarItem onClick={()=> editor?.chain().focus().undo().run()}>
+									<MenubarItem onClick={() => editor?.chain().focus().undo().run()}>
 										<Undo2Icon className='size-4 mr-2' />
 										Undo<MenubarShortcut>⌃ + Z</MenubarShortcut>
 									</MenubarItem>
-									<MenubarItem onClick={()=> editor?.chain().focus().redo().run()}>
+									<MenubarItem onClick={() => editor?.chain().focus().redo().run()}>
 										<Redo2Icon className='size-4 mr-2' />
 										Redo<MenubarShortcut>⌃ + Y</MenubarShortcut>
 									</MenubarItem>
@@ -166,8 +167,8 @@ function Navbar() {
 										<MenubarSubTrigger>Table</MenubarSubTrigger>
 										<MenubarSubContent>
 											{Array.from({ length: 5 }, (_, i) => (
-												<MenubarItem 
-													key={i + 1} 
+												<MenubarItem
+													key={i + 1}
 													onClick={() => insertTable({ rows: i + 1, cols: i + 1 })}>
 													{`Table ${i + 1}x${i + 1}`}
 												</MenubarItem>
@@ -214,6 +215,15 @@ function Navbar() {
 						</Menubar>
 					</div>
 				</div>
+			</div>
+			<div className="flex gap-3 items-center pl-6">
+				<OrganizationSwitcher
+					afterCreateOrganizationUrl="/"
+					afterLeaveOrganizationUrl='/'
+					afterSelectOrganizationUrl="/"
+					afterSelectPersonalUrl="/"
+				/>
+				<UserButton />
 			</div>
 		</nav>
 	)

@@ -8,6 +8,7 @@ import { templates } from "@/constants/templates";
 import { useRouter } from "next/navigation";
 import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
+import { toast } from "sonner";
 
 function TemplatesGallary() {
 
@@ -17,11 +18,13 @@ function TemplatesGallary() {
 
   const onTemplateClick = async (title: string, initialContent: string) => {
     setIsCreating(true);
-    create({title, initialContent})
+    create({ title, initialContent })
       .then((documentId) => {
+        toast.success("Document created");
         router.push(`/documents/${documentId}`);
       })
-      .finally(() =>{ 
+      .catch(() => toast.error("Failed to create document"))
+      .finally(() => {
         setIsCreating(false);
       });
   }
@@ -37,7 +40,7 @@ function TemplatesGallary() {
                 key={template.id}
                 className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 2xl:basis-[14.285714%] pl-4"
               >
-                <div 
+                <div
                   className={cn(
                     "aspect-[3/4] flex flex-col gap-y-2.5",
                     isCreating && "pointer-events-none opacity-50"
@@ -55,8 +58,8 @@ function TemplatesGallary() {
                     className="size-full hover:border-blue-500 rounded-sm border hover:bg-blue-50 transition flex flex-col items-center justify-center gap-y-4 bg-white"
                   />
                   <p className="text-sm font-medium truncate">
-                    {template.label}  
-                  </p> 
+                    {template.label}
+                  </p>
                 </div>
               </CarouselItem>
             ))}
