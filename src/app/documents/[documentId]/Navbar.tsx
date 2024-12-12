@@ -38,6 +38,7 @@ import {
 import { useEditorStore } from '@/store/use-editor-store'
 import { on } from 'events'
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
+import { Avatars } from './Avatars'
 
 function Navbar() {
 
@@ -217,6 +218,7 @@ function Navbar() {
 				</div>
 			</div>
 			<div className="flex gap-3 items-center pl-6">
+				<Avatars />
 				<OrganizationSwitcher
 					afterCreateOrganizationUrl="/"
 					afterLeaveOrganizationUrl='/'
