@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Docs Clone
+
+**Docs Clone** is inspired by popular document management platforms. This project allows users to create, edit, and manage various types of documents based on templates. Users can utilize advanced tools to enhance document quality, whether the document is for personal or organizational purposes.
+
+**Demo** - [docs-clone-rgyy.vercel.app
+](docs-clone-rgyy.vercel.app
+)
+
+---
+
+## Features
+
+- **Template-Based Document Creation**: Start with customizable templates tailored for different use cases.
+- **Realtime Collaboration**: Engage collaboratively with others in real-time using Liveblocks.
+- **Rich Text Editing**: Leverage the powerful Tiptap editor for a seamless and intuitive document editing experience.
+- **Secure Authentication**: Integrated with Clerk for user authentication and management.
+- **Cloud-Based Storage**: Uses Convex DB to securely store and retrieve documents.
+
+---
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) – For building the user interface and server-side rendering.
+- **Authentication**: [Clerk](https://clerk.dev/) – For seamless and secure user authentication.
+- **Realtime Collaboration**: [Liveblocks](https://liveblocks.io/) – To enable collaborative editing in real-time.
+- **Editor**: [Tiptap](https://tiptap.dev/) – A modern, extensible rich-text editor.
+- **Database**: [Convex DB](https://convex.dev/) – For scalable and reactive document storage.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to set up and run the project locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Neautrino/docs-clone.git
+   ```
+2. Navigate to the Project Directory
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```bash
+    cd docs-clone
+    ```
+3. Install Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    ```bash
+    npm install
+    ```
+    or
+    ``` bash
+    npm install --legacy-peer-deps
+    ```
+4. Set Up Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    Rename .env.example to .env.local.
+Fill in the required environment variables as per the instructions in the .env.example file.
 
-## Learn More
+5. Run the Development Server
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    npm run dev
+    ```
+    and on seperate terminal run
+    ```bash
+    npx convex dev
+    ```
+    Open http://localhost:3000 to view the application in the browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
+We welcome contributions to improve this project! Here’s how you can contribute:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Fork the repository and create your feature branch:
 
-## Deploy on Vercel
+bash
+Copy code
+git checkout -b feature/your-feature-name
+Make changes and commit:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+bash
+Copy code
+git commit -m "Add your descriptive commit message"
+Push your branch:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+bash
+Copy code
+git push origin feature/your-feature-name
+Submit a pull request and describe the changes you've made.
+
+## If you Like Give it a Star 👍
