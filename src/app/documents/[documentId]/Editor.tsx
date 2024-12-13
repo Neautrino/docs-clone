@@ -25,13 +25,20 @@ import Ruler from './Ruler'
 import { Threads } from './Threads'
 import { useStorage } from '@liveblocks/react'
 
-export function Editor() {
+interface EditorProps {
+	initialContent?: string | undefined;
+	offlineSupport_experimental?: true;
+};
+
+export function Editor({ initialContent }: EditorProps) {
 
 	const leftMargin = useStorage((root) => root.leftMargin);
 	const rightMargin = useStorage((root) => root.rightMargin);
 
 	const { setEditor } = useEditorStore()
-	const liveblocks = useLiveblocksExtension();
+	const liveblocks = useLiveblocksExtension({
+		initialContent,
+	});
 
 	const editor = useEditor({
 		immediatelyRender: false,

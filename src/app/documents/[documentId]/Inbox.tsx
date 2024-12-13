@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Separator } from '@/components/ui/separator';
-import { ClientSideSuspense, useInboxNotifications } from '@liveblocks/react'
+import { ClientSideSuspense, useInboxNotifications } from '@liveblocks/react/suspense'
 import { InboxNotification, InboxNotificationList } from '@liveblocks/react-ui';
 import { BellIcon } from 'lucide-react';
 import React from 'react'
