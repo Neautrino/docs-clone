@@ -11,7 +11,6 @@ import { SketchPicker, ColorResult } from 'react-color';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { DialogFooter, DialogHeader, Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import { parse } from 'path';
 
 
 interface ToolbarButtonProps {
@@ -173,7 +172,7 @@ const ListButton = () => {
                 </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className='p-1 flex flex-col gap-y-1'>
-                {lists.map(({ label, icon: Icon, isActive, onClick }) => (
+                {lists.map(({ label, icon: Icon, onClick }) => (
                     <button
                         key={label}
                         onClick={onClick}
