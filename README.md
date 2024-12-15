@@ -66,24 +66,4 @@ Fill in the required environment variables as per the instructions in the .env.e
     ```
     Open http://localhost:3000 to view the application in the browser.
 
-## Contributing
-We welcome contributions to improve this project! Here’s how you can contribute:
-
-Fork the repository and create your feature branch:
-
-bash
-Copy code
-git checkout -b feature/your-feature-name
-Make changes and commit:
-
-bash
-Copy code
-git commit -m "Add your descriptive commit message"
-Push your branch:
-
-bash
-Copy code
-git push origin feature/your-feature-name
-Submit a pull request and describe the changes you've made.
-
 ## If you Like Give it a Star 👍
