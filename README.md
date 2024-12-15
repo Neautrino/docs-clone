@@ -2,9 +2,7 @@
 
 **Docs Clone** is inspired by popular document management platforms. This project allows users to create, edit, and manage various types of documents based on templates. Users can utilize advanced tools to enhance document quality, whether the document is for personal or organizational purposes.
 
-**Demo** - [docs-clone-rgyy.vercel.app
-](docs-clone-rgyy.vercel.app
-)
+**Demo** - [https://docs-clone-rgyy.vercel.app/](https://docs-clone-rgyy.vercel.app/)
 
 ---
 
